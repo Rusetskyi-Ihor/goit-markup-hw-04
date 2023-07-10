@@ -205,7 +205,7 @@ body {
     rgba(46, 47, 66, 0.70),
     rgba(46, 47, 66, 0.70)
   ),
-  url(/images/header-bcg-pure.jpg);
+  url(./images/header-bcg-pure.jpg);
   padding: 188px 0;
   text-align: center;
   background-repeat: no-repeat;
