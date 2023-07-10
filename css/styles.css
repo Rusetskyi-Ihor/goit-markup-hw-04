@@ -11,6 +11,7 @@
   --hero-background: #2e2f42;
   --white-background: #ffffff;
   --modal-background: #fcfcfc;
+  --dark-color: #000000;
 }
 
 *,
@@ -101,6 +102,7 @@ img {
   max-width: 1158px;
   padding: 0 15px;
   margin: 0 auto;
+  outline: 2px solid red;
 }
 
 body {
@@ -190,10 +192,24 @@ body {
 
 /** -----HERO----- */
 
-.hero {
+/* .hero {
   background-color: var(--main);
   padding: 188px 0;
   text-align: center;
+} */
+
+.hero {
+  background-color: var(--main);
+  background-image: linear-gradient(
+    180deg,
+    rgba(46, 47, 66, 0.70),
+    rgba(46, 47, 66, 0.70)
+  ),
+  url(/images/header-bcg-pure.jpg);
+  padding: 188px 0;
+  text-align: center;
+  border: 1px solid var(--dark-color);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .hero-title {
