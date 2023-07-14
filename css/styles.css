@@ -95,6 +95,7 @@ img {
   text-transform: uppercase;
   margin-right: 76px;
   display: inline-block;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .container {
@@ -102,6 +103,7 @@ img {
   max-width: 1158px;
   padding: 0 15px;
   margin: 0 auto;
+  outline: 2px solid red;
 }
 
 body {
@@ -118,7 +120,7 @@ body {
   border-bottom: 1px solid var(--accent);
 }
 
-.header .container {
+.header-container {
   justify-content: space-between;
   display: flex;
   align-items: center;
@@ -142,9 +144,10 @@ body {
   line-height: 1.5;
   letter-spacing: 0.02em;
   padding: 24px 0;
+  position: relative;
 }
 
-.header .container {
+.header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -164,6 +167,23 @@ body {
 .header-menu-link:hover,
 .header-menu-link:focus {
   color: var(--actions);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.current {
+  position: relative;
+  color: var(--actions);
+}
+
+.current::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--actions);
 }
 
 .address {
@@ -176,17 +196,18 @@ body {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
-  letter-spacing: 0.02em
+  letter-spacing: 0.02em;
 }
 
 .header-address-link:hover,
 .header-address-link:focus {
   color: var(--actions);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-address-list {
   display: flex;
-  gap:40px;
+  gap: 40px;
 }
 
 /** -----HERO----- */
@@ -194,12 +215,11 @@ body {
 .hero {
   background-color: var(--main);
   background-image: linear-gradient(
-    180deg,
-    rgba(46, 47, 66, 0.70),
-    rgba(46, 47, 66, 0.70)
-  ),
-
-  url(../images/bcg-hero.jpg);
+      180deg,
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/bcg-hero.jpg);
   padding: 188px 0;
   text-align: center;
   background-repeat: no-repeat;
@@ -232,12 +252,61 @@ body {
   letter-spacing: 0.04em;
   cursor: pointer;
   color: var(--white-background);
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  border-radius: 4px;
+  background: rgba(46, 47, 66, 0.40);
+}
+
+.modal {
+  width: 408px;
+  height: 584px;
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+}
+
+.close-button {
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  fill: var(--main);
+  background-color: var(--accent);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: var(--actions);
+  fill: #ffffff;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 .hero-btn:hover,
 .hero-btn:focus {
   background-color: var(--actions);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /** -----ADVANTAGERS----- */
@@ -251,6 +320,17 @@ body {
   gap: 24px;
 }
 
+.advantages-block {
+  width: 264px;
+  height: 112px;
+  background-color: var(--light);
+  border-radius: 4px;
+  margin-bottom: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .advantagers-item-text {
   font-size: 16px;
   line-height: 1.5;
@@ -259,6 +339,7 @@ body {
 
 .section-advantagers-item {
   width: calc((100% - 72px) / 4);
+  position: relative;
 }
 
 /** -----SERVICE----- */
@@ -324,14 +405,13 @@ body {
 .footer {
   background-color: var(--main);
   padding: 100px 0;
-
 }
 
 .footer-logo {
   display: inline-block;
   color: var(--light);
   font-size: 18px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 800;
   line-height: 1.17;
   letter-spacing: 0.03em;
@@ -365,12 +445,12 @@ body {
 }
 
 .product-btn {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.04em;
-  border: 1px solid var(--cornflower, #E7E9FC);
+  border: 1px solid var(--cornflower, #e7e9fc);
   background: var(--light);
   justify-content: center;
   color: var(--links-hover-active);
@@ -387,6 +467,7 @@ body {
   color: var(--white-background);
   cursor: pointer;
   border: 1px solid transparent;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .product-title {
