@@ -42,7 +42,7 @@ ol {
   margin-bottom: 0;
 }
 
-.link {
+a {
   text-decoration: none;
 }
 
@@ -148,6 +148,7 @@ body {
   letter-spacing: 0.02em;
   padding: 24px 0;
   position: relative;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-container {
@@ -181,7 +182,7 @@ body {
 .current::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -1px;
   left: 0;
   width: 100%;
   height: 4px;
@@ -216,6 +217,8 @@ body {
 /** -----HERO----- */
 
 .hero {
+  width: 100%;
+  max-width: 1440px;
   background-color: var(--main);
   background-image: linear-gradient(
       180deg,
@@ -256,6 +259,7 @@ body {
   cursor: pointer;
   color: var(--white-background);
   font-family: 'Roboto', sans-serif;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-btn:hover,
@@ -338,7 +342,7 @@ body {
   height: 112px;
   background-color: var(--light);
   border-radius: 4px;
-  margin-bottom: 19px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -392,6 +396,9 @@ body {
   width: calc((100% - 72px) / 4);
   border-radius: 0px 0px 4px 4px;
   background-color: var(--white-background);
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
 .team-title {
@@ -404,7 +411,7 @@ body {
 }
 
 .team-information {
-  padding: 32px 16px;
+  padding: 32px 0 32px;
 }
 
 .team-text {
@@ -416,6 +423,7 @@ body {
 
 .team-soc-list {
   display: flex;
+  justify-content: center;
   gap: 24px;
 }
 
